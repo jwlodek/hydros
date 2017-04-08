@@ -1,0 +1,11 @@
+# hygro substitutions file
+
+file ./db/hygro.template
+# PORT - Serial port name asyn
+#
+{
+pattern { P,			R, 		PORT,		SCANRATE_FAST,	SCANRATE_SLOW	}
+	{ "XF:10IDD-ES",	"{Humid:1}"	"COM1",		"1 second",	"Passive"	 }
+}
+
+

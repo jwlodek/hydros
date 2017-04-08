@@ -1,0 +1,39 @@
+#
+# StreamDevice protocol for the GEO Calibration HYGRO Remote, a Humidity Control Company.
+#
+# A full command from the host to the Hygro comprises as many characters
+# as needed to form the message, terminated by a CR or LF character.
+# The CR is required for the Hygro to commence processing.
+#
+# K. Gofron, 2017-04-7: Changes to the protocol
+# FPGA code: 4.1R
+# Application code: 14.0.22
+# Device: Hygro Remote, SN:
+# The i404 device sends \r.
+
+InTerminator = CR;
+OutTerminator = CR;
+replytimeout = 499;
+readtimeout  = 900;
+locktimeout = 5000;
+
+	@mismatch {
+		in "%*c";	
+	}
+
+################# Temperature section##################################################################################################################
+
+setT {out "TSET %f"; in ""; InTerminator = CR; }
+readT {out "TSET"; in "Set Temperature is: %f"; InTerminator = CR; }
+getT {out "TREAD"; in "Actual Temperature is: %f"; InTerminator = CR;}
+
+################# Humidity section##################################################################################################################
+
+setH {out "HSET %f"; in ""; InTerminator = CR; }
+readH {out "HSET"; in "Set Humidity is: %f"; InTerminator = CR; }
+getH {out "HREAD"; in "Actual Humidity is: %f"; InTerminator = CR;}
+
+###############  Version  #############################
+
+#idn {out "VER"; in "*IDN?\10%[a-zA-Z0-9\ \.\,\-\/]"; InTerminator = CR;}
+idn {out "VER"; in "%s"; InTerminator = CR;}
