@@ -1,0 +1,37 @@
+Author: K. Gofron
+Date: 2017-4-7
+
+The EPICS driver for control of the GEO Calibration HYGRO REMOTE humidity control system at NSLS2 IXS beamline.
+
+Unfortunately following does not produce response (root): echo "HELP">/dev/ttyUSB0
+Using "screen /dev/ttyUSB0" the command set was extracted from the device (response to HELP).
+
+>Hygro Mini commands:
+VER
+STANDBY
+TSET
+HSET
+TREAD
+HREAD
+HELP
+WARMUP
+====================
+
+>Model: G1
+Firmware: 2.07
+Serial Number: N/A
+
+>Actual Temperature is: 23.10
+>Actual Humidity is: 29.90
+========================
+Setting Temperature/Humidity setPoint to 20C and 30% respectively:
+TSET 20 
+HSET 30
+======================
+Reading Temperature / Humidity;
+TREAD
+HREAD
+=======================
+REadback of the setPoints (use TSET/HSET without argument)
+TSET
+HSET
