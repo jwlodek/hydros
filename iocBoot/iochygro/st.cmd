@@ -42,7 +42,8 @@ asynSetOption ("COM1", 0, "crtscts", "N")
 #drvAsynIPPortConfigure("I404_1", "10.10.2.64:4003",0,0,0)
 ##
 #dbLoadRecords("db/asyn.db","Sys=XF:10IDC-BI,Dev={i404:2},PORT=I404_1,ADDR=0")
-dbLoadRecords("db/asyn.db","Sys=XF:10IDC-BI,Dev={i404:2},PORT=COM1,ADDR=0")
+#dbLoadRecords("db/asyn.db","Sys=XF:10IDC-BI,Dev={i404:2},PORT=COM1,ADDR=0")
+dbLoadRecords("db/asyn.db","Sys=XF:10IDD-ES,Dev={Humid:1},PORT=COM1,ADDR=0")
 
 
 ## Load record instances
