@@ -5,7 +5,12 @@
 
 epicsEnvSet("ENGINEER",  "kgofron x5283")
 epicsEnvSet("LOCATION", "XF10IDD{RG:D2}")
-epicsEnvSet("STREAM_PROTOCOL_PATH", "hygroApp/Db")
+#epicsEnvSet("STREAM_PROTOCOL_PATH", "hygroApp/Db")
+
+epicsEnvSet("P",         "XF:10IDD-ES")
+epicsEnvSet("R",         "{Env:1-RH:1}")
+epicsEnvSet("H_PORT",    "COM1")
+#
 epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")
 epicsEnvSet("EPICS_CA_ADDR_LIST", "10.10.0.255")
 
@@ -43,7 +48,8 @@ asynSetOption ("COM1", 0, "crtscts", "N")
 ##
 #dbLoadRecords("db/asyn.db","Sys=XF:10IDC-BI,Dev={i404:2},PORT=I404_1,ADDR=0")
 #dbLoadRecords("db/asyn.db","Sys=XF:10IDC-BI,Dev={i404:2},PORT=COM1,ADDR=0")
-dbLoadRecords("db/asyn.db","Sys=XF:10IDD-ES,Dev={Humid:1},PORT=COM1,ADDR=0")
+#dbLoadRecords("db/asyn.db","Sys=XF:10IDD-ES,Dev={Env:1-RH:1},PORT=COM1,ADDR=0")
+dbLoadRecords("db/asyn.db","Sys=$(P),Dev=$(R),PORT=$(H_PORT),ADDR=0")
 
 
 ## Load record instances
@@ -59,8 +65,8 @@ iocInit()
 ## Start any sequence programs
 #seq sncI400,"user=iocuser"
 
-dbpf("XF:10IDC-BI{i404:2}Asyn.TB3","1")
-dbpf("XF:10IDC-BI{i404:2}Asyn.TIB1","1")
+#dbpf("XF:10IDD-ES{Env:1-RH:1}Asyn.TB3","1")
+#dbpf("XF:10IDC-ES{Env:1-RH:1}Asyn.TIB1","1")
 
 ###Streamdebug#################################################################
 var streamDebug 0

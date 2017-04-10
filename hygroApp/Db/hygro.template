@@ -1,51 +1,51 @@
-record(stringin, "$(P)$(R)VER") {
+record(stringin, "$(Sys)$(Dev)VER") {
   field(DESC, "display the identification string")
   field(DTYP, "stream")
   field(PINI, "YES")
 #  field(SCAN, "$(SCANRATE_SLOW)")
   field(INP, "@hygro.proto idn() $(PORT) 0")
 #  field(DISV, "0")
-#  field(SDIS, "$(P)$(R):COMSTAT")
+#  field(SDIS, "$(Sys)$(Dev):COMSTAT")
 }
 
-record(ai, "$(P)$(R)T") {
+record(ai, "$(Sys)$(Dev)T") {
   field(PINI, "YES")
   field(DTYP, "stream")
   field(INP, "@hygro.proto getT() $(PORT) 0")
   field(EGU, "C")
 }
 
-record(ao, "$(P)$(R)T:SP") {
+record(ao, "$(Sys)$(Dev)T:SP") {
 #field(SEVR, "0") ##keep it down on initial
   field(DTYP, "stream")
   field(OUT, "@hygro.proto setT() $(PORT) 0")
   field(EGU, "C")
 }
 
-record(ai, "$(P)$(R)T:SP-RB") {
+record(ai, "$(Sys)$(Dev)T:SP-RB") {
   field(PINI, "YES")
   field(DTYP, "stream")
   field(INP, "@hygro.proto readT() $(PORT) 0")
   field(EGU, "C")
 }
 
-record(ao, "$(P)$(R)H:SP") {
+record(ao, "$(Sys)$(Dev)RH:SP") {
 #field(SEVR, "0") ##keep it down on initial
   field(DTYP, "stream")
   field(OUT, "@hygro.proto setH() $(PORT) 0")
-  field(EGU, "C")
+  field(EGU, "%")
 }
 
-record(ai, "$(P)$(R)H:SP-RB") {
+record(ai, "$(Sys)$(Dev)RH:SP-RB") {
   field(PINI, "YES")
   field(DTYP, "stream")
   field(INP, "@hygro.proto readH() $(PORT) 0")
-  field(EGU, "C")
+  field(EGU, "%")
 }
 
-record(ai, "$(P)$(R)H") {
+record(ai, "$(Sys)$(Dev)RH") {
   field(PINI, "YES")
   field(DTYP, "stream")
   field(INP, "@hygro.proto getH() $(PORT) 0")
-  field(EGU, "C")
+  field(EGU, "%")
 }
