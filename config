@@ -1,0 +1,4 @@
+NAME=hygro
+USER=softioc
+PORT=4510
+HOST=xf10idb-ioc1
