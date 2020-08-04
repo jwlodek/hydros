@@ -1,0 +1,14 @@
+{
+	"alias": [
+		"BASE:EPICS_BASE",
+		"STREAM:STREAMDEVICE"
+	]
+	"modules": [
+		"BASE:R7-0-2",
+		"ASYN:R4-35",
+		"CALC:R3-7-3",
+		"STREAMDEVICE:R2-8-8"
+	]
+}
+
+
